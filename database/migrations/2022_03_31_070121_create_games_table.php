@@ -16,11 +16,12 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('campaign_id')->constrained();
             $table->foreignId('prize_id')->nullable()->constrained(); //id of the won prize
+            $table->string('account'); //username of the user who played the game
             $table->integer('points')->nullable();
             $table->integer('prizeamount')->nullable();
             $table->string('popup_image')->nullable();
             $table->string('message')->nullable();
-            $table->string('account'); //username of the user who played the game
+            $table->foreign('account')->references('name')->on('users');
             $table->dateTime('revealed_at')->nullable(); //timestamp in campaign's timezone
             // when the game has been played - it can be different than created_at
             $table->timestamps();

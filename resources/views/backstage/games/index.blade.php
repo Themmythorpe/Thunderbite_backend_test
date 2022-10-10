@@ -1,7 +1,7 @@
 @extends('backstage.templates.backstage')
 
 @section('tools')
-    {{-- @if( auth()->user()->hasLevel('admin') || auth()->user()->hasLevel('download') )
+   {{-- @if( auth()->user()->hasLevel('admin') || auth()->user()->hasLevel('download') )
         <form method="POST" action="{{ route('backstage.games.export') }}">
             @csrf
             <div class="grid grid-cols-4 gap-4 items-start pt-5">
@@ -18,6 +18,7 @@
 @section('content')
     <div id="card" class="bg-white shadow-lg mx-auto rounded-b-lg">
         <div class="px-10 pt-4 pb-8">
+
             @livewire('backstage.game-table')
         </div>
     </div>

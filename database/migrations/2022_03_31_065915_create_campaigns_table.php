@@ -21,6 +21,9 @@ return new class extends Migration {
             $table->string('segmentation')->nullable();
             $table->integer('games_allowed')->nullable();
             $table->integer('games_frequency')->nullable();
+            $table->integer('three_matches')->nullable();
+            $table->integer('four_matches')->nullable();
+            $table->integer('five_matches')->nullable();
             $table->timestamp('starts_at')->nullable(); //campaign can be used (games played on it) from this date onwards
             $table->timestamp('ends_at')->nullable(); //campaign can be used until this date
             $table->timestamps();

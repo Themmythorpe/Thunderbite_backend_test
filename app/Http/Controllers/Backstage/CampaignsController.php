@@ -98,6 +98,11 @@ class CampaignsController extends Controller
         $data = $this->validate(request(), [
             'name' => 'required|max:255|unique:campaigns,name,'.$campaign->id,
             'timezone' => 'required',
+            'games_frequency' => 'required',
+            'games_allowed' => 'required',
+            'three_matches' => 'required',
+            'four_matches' => 'required',
+            'five_matches' => 'required',
             'starts_at' => 'required|date_format:d-m-Y H:i:s',
             'ends_at' => 'required|date_format:d-m-Y H:i:s',
         ]);

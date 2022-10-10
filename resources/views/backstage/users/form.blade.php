@@ -28,7 +28,7 @@
     'options' => [
         'admin' => 'Admin',
         'download' => 'Read only &amp; List download',
-        'read' => 'Read Only',
+        'readonly' => 'Read Only',
     ]
 ])
 

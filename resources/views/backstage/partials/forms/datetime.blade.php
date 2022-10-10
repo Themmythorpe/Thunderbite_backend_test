@@ -4,7 +4,7 @@
     </label>
 
     <div class="col-span-3">
-        <input id="{{ $field }}" type="text" autocomplete=off  class="thunderbite-input @error($field) is-invalid @enderror" name="{{ $field }}" value="{{ $value }}">
+        <input id="{{ $field }}" type="date" autocomplete=off  class="thunderbite-input @error($field) is-invalid @enderror" name="{{ $field }}" value="{{ $value }}">
 
         @error($field)
         <span class="invalid-feedback" role="alert">

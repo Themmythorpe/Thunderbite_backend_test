@@ -27,6 +27,11 @@ namespace App\Http\Requests\Backstage\Campaigns;
             return [
                 'name' => 'required|unique:campaigns|max:255',
                 'timezone' => 'required',
+                'games_frequency' => 'required',
+                'games_allowed' => 'required',
+                'three_matches' => 'required',
+                'four_matches' => 'required',
+                'five_matches' => 'required',
                 'starts_at' => 'required|date_format:d-m-Y H:i:s',
                 'ends_at' => 'required|date_format:d-m-Y H:i:s',
             ];

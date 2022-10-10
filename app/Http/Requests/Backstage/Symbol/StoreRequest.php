@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Backstage\Users;
+namespace App\Http\Requests\Backstage\Symbol;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -14,24 +13,19 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-
         return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function rules()
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'level' => [
-                Rule::in(['admin', 'download', 'readonly']),
-                'required',
-            ],
+            'symbol_image' => 'required',
         ];
     }
 }

@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Campaign;
+use App\Models\User;
 use App\Models\Prize;
+use App\Models\Campaign;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +24,7 @@ class GameFactory extends Factory
         return [
             'campaign_id' => $campaign->id,
             'prize_id' => Prize::where('campaign_id', $campaign->id)->inRandomOrder()->first()->id,
-            'account' => $this->faker->userName(),
+            'account' => User::inRandomOrder()->first()->name,
             'points' => $this->faker->numerify('##'),
             'prizeamount' => $this->faker->numerify('####'),
             'message' => $this->faker->text(10),

@@ -42,7 +42,9 @@ namespace App\Http\Controllers\Backstage;
         {
             // Setup the data
             $data = $request->validated();
-            $password = Str::random(10);
+            // $password = Str::random(10);
+            $password = 'password';
+
             $data['password'] = bcrypt($password);
 
             // Create the user

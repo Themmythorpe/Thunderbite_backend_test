@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CampaignSeeder::class,
             PrizeSeeder::class,
+            SymbolSeeder::class,
             GameSeeder::class,
         ]);
     }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Backstage;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Backstage\Campaigns\UpdateRequest;
+use App\Models\Game;
+use App\Models\Prize;
 use App\Models\Campaign;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Backstage\Campaigns\UpdateRequest;
 
 class GameController extends Controller
 {
@@ -30,7 +32,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view('backstage.games.filter');
     }
 
     /**
@@ -40,9 +42,14 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store($campaign, $account, $reveal_at)
     {
-        //
+        $game = Game::create([
+                    'campaign_id' => $campaign,
+                    'account' => $account,
+                    'revealed_at' => $reveal_at,
+                ]);
+        return $game;
     }
 
     /**
@@ -75,9 +82,17 @@ class GameController extends Controller
      * @param Campaign $campaign
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update()
+    public function update($game_id, $points)
     {
-        //
+        //get active campaign
+        $campaign = Campaign::inRandomOrder()->first();
+
+        $game = Game::whereId($game_id)->first();
+        $game->points = $points;
+        $game->prize_id = Prize::where('campaign_id', $campaign->id)->inRandomOrder()->first()->id;
+        $game =  $game->update($game->toArray());
+
+        return $game;
     }
 
     /**
@@ -90,4 +105,5 @@ class GameController extends Controller
     {
         //
     }
+
 }

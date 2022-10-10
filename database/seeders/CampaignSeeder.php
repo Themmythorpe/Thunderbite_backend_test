@@ -19,8 +19,11 @@ class CampaignSeeder extends Seeder
         Campaign::create([
             'timezone' => 'Europe/London',
             'name' => 'Test Campaign 1',
-            'games_allowed' => 3,
+            'games_allowed' => 1500,
             'games_frequency' => 5,
+            'three_matches' => 30,
+            'four_matches' => 40,
+            'five_matches' => 50,
             'starts_at' => now()->startOfDay(),
             'ends_at' => now()->addDays(7)->endOfDay(),
         ]);
@@ -28,8 +31,11 @@ class CampaignSeeder extends Seeder
         Campaign::create([
             'timezone' => 'Europe/London',
             'name' => 'Test Campaign 2',
-            'games_allowed' => 3,
+            'games_allowed' => 1500,
             'games_frequency' => 5,
+            'three_matches' => 30,
+            'four_matches' => 40,
+            'five_matches' => 50,
             'starts_at' => now()->startOfDay(),
             'ends_at' => now()->addDays(7)->endOfDay(),
         ]);
